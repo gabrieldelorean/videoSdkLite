@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Videosdk.live RTC</title>
+    <script> var exports = {}; </script>
+    <script src="apitoken.js"></script>
+  </head>
+  <body>
+    <script>
+
+
+const meeting = new VideoSDKMeeting();
+
+meeting.init({
+  apiKey :"80713d5d-c2ba-4b32-8003-5dad8a387e28", // generated from app.videosdk.live
+  meetingId :"vepn-fnch-i0b9",
+  name : "John Doe",
+
+  containerId: null,
+  redirectOnLeave: "https://www.videosdk.live/",
+
+  micEnabled: true,
+  webcamEnabled: true,
+  participantCanToggleSelfWebcam: true,
+  participantCanToggleSelfMic: true,
+
+  chatEnabled: true,
+  screenShareEnabled: true,
+  pollEnabled: true,
+  whiteBoardEnabled: true,
+  raiseHandEnabled: true,
+
+  recordingEnabled: true,
+  recordingWebhookUrl: "https://www.videosdk.live/callback",
+  participantCanToggleRecording: true,
+
+  brandingEnabled: true,
+  brandLogoURL: "https://picsum.photos/200",
+  brandName: "Wittel",
+  poweredBy: false,
+
+  participantCanLeave: true, // if false, leave button won't be visible
+
+  // Live stream meeting to youtube
+  // livestream: {
+  //   autoStart: true,
+  //   outputs: [
+  //     {
+  //       url: "rtmp://x.rtmp.youtube.com/live2",
+  //       streamKey: "<STREAM KEY FROM YOUTUBE>",
+  //     },
+  //   ],
+  // },
+
+  permissions: {
+    askToJoin: false, // Ask joined participants for entry in meeting
+    toggleParticipantMic: true, // Can toggle other participant's mic
+    toggleParticipantWebcam: true, // Can toggle other participant's webcam
+  },
+
+  joinScreen: {
+    visible: true, // Show the join screen ?
+    title: "Daily scrum", // Meeting title
+    meetingUrl: window.location.href, // Meeting joining url
+  },
+});
+    </script>
+  </body>
+</html>
